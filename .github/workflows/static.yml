@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
+          BASE_PATH: '/${{ github.event.sveltetest6.github.io }}'
         run: |
           npm run build
 
