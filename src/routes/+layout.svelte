@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Nav from '$lib/InterfazSitio/Nav.svelte';
+	import NavLinksPanel from '$lib/InterfazSitio/NavBar/NavLinksPanel.svelte';
 </script>
 
 <main>
-    <Nav/>
-<slot/>
+    <NavLinksPanel navRaiz={"/"}/>
+    <slot/>
 </main>
