@@ -39,20 +39,22 @@
 			nodoLista={arregloSitioInferior?.find((element) => element.id == navRaiz)}
 		/>
 	{/snippet}
-	<NavLinksEnlace nodoPagina={arbolSitio} />
+	<div style="display: flex;"><NavLinksEnlace nodoPagina={arbolSitio}/>
+	</div>
 	{@render navBar(navRaiz)}
 </div>
 
 <style lang="scss">
 	.NavLinksPanel {
 		position: fixed;
-		left: 1em;
-		margin-left: auto;
-		background-color: aqua;
+		width: auto;
+		left: 0em;
+		right: 0em;
+		margin-left: 1em;
+		margin-right: 1em;
+		background-color: rgb(255, 232, 232);
 		border-radius: 0.5em;
 		padding: 1em;
-		width: -webkit-fill-available;
-		right: 1em;
 		top: 3em;
 	}
 </style>
