@@ -127,3 +127,16 @@ export class Dato {
         return clon
     }
 }
+
+export function crearArregloNodosConDatosDinamicos(arreglo:Nodo[]){
+    let arregloDatos=$state(arreglo)
+
+    function agregarDato(id: string, dato: Dato){
+        let indice= arregloDatos.findIndex(elemento=>elemento.id==id)
+        arregloDatos[indice].agregarDato(dato.propiedad, dato.valor)
+    }
+    return{
+        get obtenerArregloDinamico(){return arregloDatos},
+        agregarDato,
+    }
+}

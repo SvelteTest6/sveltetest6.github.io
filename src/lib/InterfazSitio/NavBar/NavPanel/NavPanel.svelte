@@ -2,10 +2,10 @@
 	import { writable, get } from 'svelte/store';
 	import { mapaArbolSitio, mapaArregloSitio } from '$lib/Logica/LogicaMapeadoSitio/MapeadoSitio.svelte';
 
-	import {arregloSitioEstadosNavLinks} from "./NavLinks.svelte"
+	import {propiedadesElementosHTML} from "../../../Logica/LogicaPropiedadeseElementosHTML/PropiedadesElementosHTML"
 
-	import NavLinksLista from '$lib/InterfazSitio/NavBar/NavLinksLista.svelte';
-	import NavLinksEnlace from './NavLinksEnlace.svelte';
+	import NavPanelLista from './NavPanelLista.svelte';
+	import NavPanelEnlace from './NavPanelEnlace.svelte';
 	//El panel de links de navegación recibe una ruta con navRaiz, la más probable es "/"
 	let { navRaiz } = $props();
 	//se genera el arbol del sitio, buscando en el $mapaArregloSitio aquel elemento (tipo Nodo) tal que su id sea igual a navRaiz. Se clona para realizar una copia y se genera su arbol
@@ -33,28 +33,34 @@
 	let arregloSitioInferior=arbolSitioInferior?.generarLineal()
 </script>
 
-<div class="NavLinksPanel">
-	{#snippet navBar(navRaiz)}
-		<NavLinksLista
+{#snippet navBar(navRaiz)}
+		<NavPanelLista
 			nodoLista={arregloSitioInferior?.find((element) => element.id == navRaiz)}
 		/>
-	{/snippet}
-	<div style="display: flex;"><NavLinksEnlace nodoPagina={arbolSitio}/>
+{/snippet}
+
+<div class="NavPanel">
+	<div class="NavPanelInicio"><NavPanelEnlace nodoPagina={arbolSitio}/>
 	</div>
 	{@render navBar(navRaiz)}
 </div>
 
 <style lang="scss">
-	.NavLinksPanel {
+	.NavPanel {
 		position: fixed;
 		width: auto;
-		left: 0em;
-		right: 0em;
-		margin-left: 1em;
-		margin-right: 1em;
-		background-color: rgb(255, 232, 232);
-		border-radius: 0.5em;
-		padding: 1em;
+		left: 0rem;
+		right: 0rem;
+		margin:0;
+		background-color: rgb(255, 200, 200);
+		border-radius: 0.5rem;
+		padding-left: 1rem;
+		padding: 0rem;
 		top: 3em;
+	}
+
+	.NavPanelInicio{
+		display: flex;
+		padding-left: 1rem;
 	}
 </style>
