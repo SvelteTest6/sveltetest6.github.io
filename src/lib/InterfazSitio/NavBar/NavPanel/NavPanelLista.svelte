@@ -82,4 +82,11 @@
 		display: flex;
 		padding-left: 1rem;
 		}
+
+		:global(.NavPanelEnlacePrincipal:hover) {
+		display: flex;
+		padding-left: 1rem;
+		background-color: rgb(255, 215, 215);
+		transition: all 0.1s ease both;
+		}
 </style>

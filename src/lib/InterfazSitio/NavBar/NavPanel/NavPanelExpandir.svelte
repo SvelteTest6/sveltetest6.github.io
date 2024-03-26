@@ -2,7 +2,6 @@
 	import { propiedadesElementosHTML, cambiarExpansion, obtenerExpansion, generarIdHTML } from '../../../Logica/LogicaPropiedadeseElementosHTML/PropiedadesElementosHTML'
     let {nodoPagina}= $props();
     function click(e: MouseEvent, idHTML:string){
-        e.stopPropagation()
         let elementoHTML=document.getElementById(idHTML)
         elementoHTML?.classList.remove("Inicializada")
         if(obtenerExpansion(idHTML)){
@@ -38,32 +37,34 @@
 }
 
     :global(.NavPanelExpandir.Contenedor){
-        width: 3rem;
-        height:3rem;
+        min-width:1rem;
+        height:1rem;
+        padding: 1rem;
     }
     :global(.NavPanelExpandir.Flecha){
-        width: 1rem;
-    height: 1rem;
-    left: 0.75rem;
-    top: 0.75rem;
-    border: 0.1rem solid #32557f;
+        width: 0.5rem;
+    height: 0.5rem;
+    left: 0.15rem;
+    border: 0.2rem solid #353535;
+    border-radius: 0.1rem;
     border-left: 0;
     border-top: 0;
-    animation: animarExpandirRotar 0.2s both reverse;
     position: relative;
+    transform: rotate(45deg);
+    transition: all 0.1s ease-out;
 }
 
-    :global(.NavLinkExpandir.FlechaExpandida){
-        width: 1rem;
-    height: 1rem;
-    left: 0.5rem;
-    right: 0.5rem;
-    top: 0.5rem;
-    bottom: 0.5rem;
-    border: 0.1rem solid #32557f;
-    border-left: 0;
-    border-top: 0;
-    animation: animarExpandirRotar 0.16s both reverse;
+    :global(.NavPanelExpandir.Flecha.Expandida){
+        width: 0.5rem;
+        height: 0.5rem;
+    left: 1rem;
+    top: 1.5rem;
+    border: 0.2rem solid #353535;
+    border-radius: 0.1rem;
+    border-right: 0;
+    border-bottom: 0;
     position: relative;
+    transform: rotate(45deg);
+    transition: all 0.1s ease-out;
     }
 </style>
