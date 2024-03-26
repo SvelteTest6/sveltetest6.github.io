@@ -16,7 +16,7 @@
 </script>
 
 {#snippet tocarParaExpandir(nodoPagina)}
-    <a href="javascript:void(0)" class="NavPanelExpandir Contenedor" onclick={e=>click(e,generarIdHTML("NavPanel","NavPanelLista",nodoPagina.id))}> <div class="NavPanelExpandir Flecha"/></a> 
+    <a class="NavPanelExpandir Contenedor" onclick={e=>click(e,generarIdHTML("NavPanel","NavPanelLista",nodoPagina.id))}> <div class="NavPanelExpandir Flecha"/></a> 
 {/snippet}
 {@render tocarParaExpandir(nodoPagina)}
 
