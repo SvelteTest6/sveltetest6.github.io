@@ -3,14 +3,16 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import adapter from '@sveltejs/adapter-static';
 // Markdown y svelte
 import { mdsvex } from "mdsvex";
+import remarkMath from "remark-math"
+import rehypeMathjax from "rehype-mathjax"
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [vitePreprocess(),mdsvex()],
+	preprocess: [vitePreprocess()],
 
-	extensions: [".svelte", ".svx"],
+	extensions: [".svelte", ".svx", ".md"],
 
 	kit: {
 		adapter: adapter({
@@ -24,5 +26,6 @@ const config = {
 		})
 	}
 };
+
 
 export default config;

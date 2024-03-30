@@ -2,11 +2,18 @@ import {Nodo} from "$lib/Logica/LogicaNodosDatos/NodosDatos.svelte"
 import { writable, get } from "svelte/store";
 
 function generarMapaArbolSitio(): Nodo {
-	const modulos = import.meta.glob('/src/**/*+page.svelte');
+	const modulosSvelte = import.meta.glob('/src/**/*+page.svelte');
+	const modulosMarkdown = import.meta.glob('/src/**/*+page.md');
 	let menuModulos: string[] = [];
 	function obtenerRutas() {
-		for (let rutaModulo in modulos) {
+		for (let rutaModulo in modulosSvelte) {
 			let ruta = rutaModulo.replace('+page.svelte', '').replace("./","").replace("/src/routes/","/");
+			if(ruta.indexOf("/src/lib")<0){
+				menuModulos.push(ruta);
+			}
+		}
+		for (let rutaModulo in modulosMarkdown) {
+			let ruta = rutaModulo.replace('+page.md', '').replace("./","").replace("/src/routes/","/");
 			if(ruta.indexOf("/src/lib")<0){
 				menuModulos.push(ruta);
 			}
