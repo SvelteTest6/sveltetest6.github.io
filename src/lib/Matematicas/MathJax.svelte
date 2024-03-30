@@ -1,8 +1,9 @@
 <svelte:head>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-	MathJax = {
+    <script id="polyfill" src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer rel="prefetch" as="script"></script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer rel="prefetch" as="script"></script>
+
+<script id="MathJax-config">
+	window.MathJax = {
   loader: {
     load: ['ui/lazy']
   },
@@ -13,14 +14,9 @@
   },
   tex: {
 	inlineMath:[["$","$"],["\\(","\\)"]],
-	displayMath:[["$$","$$"],["\\[","\\]"]],
-    packages: {'[+]': ['tagformat']},
-    tagSide: 'left',
-    macros: {
-      RR: '{\\bf R}',
-      bold: ['{\\bf #1}',1]
-    }
+	displayMath:[["$$","$$"],["\\[","\\]"]]
   }
 };
+//MathJax.typesetClear()
 </script>
 </svelte:head>
